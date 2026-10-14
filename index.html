@@ -138,7 +138,7 @@
 
   footer { color: var(--muted); font-size: 14px; padding: 8px 0 40px; }
 
-  @media (max-width: 720px) {
+  @media screen and (max-width: 720px) {
     header { padding-top: 36px; }
     .pipeline { grid-template-columns: 1fr; gap: 0; }
     .stage { padding: 0 0 18px 40px; }
@@ -237,7 +237,36 @@
   .langs li { border-color: transparent; }
 
   .contact { background: var(--hero); border: none; }
-  @media print { body { border-top: none; } h1 { color: var(--ink); background: none; } }
+  @media print {
+    @page { size: A4; margin: 12mm 0; }
+    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { border-top: none; font-size: 9.5pt; line-height: 1.45; }
+    h1 { background: none !important; color: #1c6dd0 !important; -webkit-text-fill-color: #1c6dd0; font-size: 26pt; }
+    .print-only { display: block !important; }
+    #contact, footer { display: none; }
+    .photo { width: 96px; height: 96px; }
+    .role { font-size: 13pt; margin: 2px 0 6px; }
+    .about { font-size: 10pt; }
+    h2 { font-size: 13pt; margin-bottom: 10px; padding-bottom: 6px; }
+    .company { margin-bottom: 14px; }
+    .job { margin-top: 8px; }
+    .job li { margin-bottom: 1px; max-width: none; }
+    .about { max-width: none; }
+    .pipeline-box { padding: 12px 16px 8px; }
+    .stage p { font-size: 8.5pt; }
+    .item { padding: 10px 14px; }
+    .grid2 { gap: 10px; }
+    .skills { gap: 6px 20px; }
+    .tag { font-size: 9pt; padding: 1px 8px; }
+    .langs li { padding: 8px 12px; }
+    header { padding: 16px 0 12px; }
+    .links, .contact .btn { display: none; }
+    .pipeline-box { box-shadow: none; margin: 14px 0 20px; }
+    main section { padding-bottom: 16px; }
+    .job, .item, .langs li, .stage { break-inside: avoid; }
+    .company-name { display: block; width: fit-content; break-after: avoid; }
+    h2 { break-after: avoid; }
+  }
 </style>
 </head>
 <body>
@@ -249,13 +278,14 @@
     <div class="intro-text">
       <h1>Ankita Kailas Jadhav</h1>
       <p class="role">Cloud &amp; DevOps Engineer · Heilbronn, Germany</p>
+      <p class="print-only" style="display:none;margin:0 0 8px;">ankitajadhav842@gmail.com &nbsp;|&nbsp; linkedin.com/in/aj0712</p>
       <span class="status">Open to Cloud &amp; DevOps roles from November 2026</span>
     </div>
   </div>
   <nav class="links" aria-label="Contact links">
     <a class="btn primary" href="mailto:ankitajadhav842@gmail.com">Email me</a>
     <a class="btn" href="https://www.linkedin.com/in/aj0712" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="btn" href="cv.pdf" download>Download CV (PDF)</a>
+    <a class="btn" href="Ankita_Kailas_Jadhav_CV.pdf" download>Download CV (PDF)</a>
   </nav>
 </header>
 </div>
